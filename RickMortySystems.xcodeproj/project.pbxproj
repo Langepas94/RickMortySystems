@@ -21,6 +21,11 @@
 		44B1B9FA2A8E0BB000CA7B63 /* MainScreenViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44B1B9F92A8E0BB000CA7B63 /* MainScreenViewModelProtocol.swift */; };
 		44B1B9FC2A8E0C7200CA7B63 /* HeroModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44B1B9FB2A8E0C7200CA7B63 /* HeroModel.swift */; };
 		44B1B9FF2A8E10CC00CA7B63 /* MainScreenCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44B1B9FE2A8E10CC00CA7B63 /* MainScreenCollectionCell.swift */; };
+		44B1BA022A8E122300CA7B63 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 44B1BA012A8E122300CA7B63 /* Kingfisher */; };
+		44B1BA052A8E181100CA7B63 /* FlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44B1BA042A8E181100CA7B63 /* FlowController.swift */; };
+		44B1BA0B2A8E4D2C00CA7B63 /* DetailScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44B1BA0A2A8E4D2C00CA7B63 /* DetailScreenView.swift */; };
+		44B1BA0D2A8E504400CA7B63 /* DetailViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44B1BA0C2A8E504400CA7B63 /* DetailViewModelProtocol.swift */; };
+		44B1BA0F2A8E50BC00CA7B63 /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44B1BA0E2A8E50BC00CA7B63 /* DetailViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +45,10 @@
 		44B1B9F92A8E0BB000CA7B63 /* MainScreenViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenViewModelProtocol.swift; sourceTree = "<group>"; };
 		44B1B9FB2A8E0C7200CA7B63 /* HeroModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroModel.swift; sourceTree = "<group>"; };
 		44B1B9FE2A8E10CC00CA7B63 /* MainScreenCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenCollectionCell.swift; sourceTree = "<group>"; };
+		44B1BA042A8E181100CA7B63 /* FlowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowController.swift; sourceTree = "<group>"; };
+		44B1BA0A2A8E4D2C00CA7B63 /* DetailScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailScreenView.swift; sourceTree = "<group>"; };
+		44B1BA0C2A8E504400CA7B63 /* DetailViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModelProtocol.swift; sourceTree = "<group>"; };
+		44B1BA0E2A8E50BC00CA7B63 /* DetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,6 +56,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				44B1BA022A8E122300CA7B63 /* Kingfisher in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -72,6 +82,8 @@
 		44B1B9CE2A8E024800CA7B63 /* RickMortySystems */ = {
 			isa = PBXGroup;
 			children = (
+				44B1BA062A8E4ADF00CA7B63 /* DetailScreen */,
+				44B1BA032A8E17E000CA7B63 /* FlowController */,
 				44B1B9E92A8E041B00CA7B63 /* Extensions */,
 				44B1B9E52A8E035000CA7B63 /* NetworkLayer */,
 				44B1B9E42A8E034500CA7B63 /* MainScreen */,
@@ -179,6 +191,48 @@
 			path = CollectionCell;
 			sourceTree = "<group>";
 		};
+		44B1BA032A8E17E000CA7B63 /* FlowController */ = {
+			isa = PBXGroup;
+			children = (
+				44B1BA042A8E181100CA7B63 /* FlowController.swift */,
+			);
+			path = FlowController;
+			sourceTree = "<group>";
+		};
+		44B1BA062A8E4ADF00CA7B63 /* DetailScreen */ = {
+			isa = PBXGroup;
+			children = (
+				44B1BA092A8E4D1E00CA7B63 /* ViewModel */,
+				44B1BA082A8E4D1900CA7B63 /* Model */,
+				44B1BA072A8E4D0C00CA7B63 /* View */,
+			);
+			path = DetailScreen;
+			sourceTree = "<group>";
+		};
+		44B1BA072A8E4D0C00CA7B63 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				44B1BA0A2A8E4D2C00CA7B63 /* DetailScreenView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		44B1BA082A8E4D1900CA7B63 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		44B1BA092A8E4D1E00CA7B63 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				44B1BA0C2A8E504400CA7B63 /* DetailViewModelProtocol.swift */,
+				44B1BA0E2A8E50BC00CA7B63 /* DetailViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -195,6 +249,9 @@
 			dependencies = (
 			);
 			name = RickMortySystems;
+			packageProductDependencies = (
+				44B1BA012A8E122300CA7B63 /* Kingfisher */,
+			);
 			productName = RickMortySystems;
 			productReference = 44B1B9CC2A8E024800CA7B63 /* RickMortySystems.app */;
 			productType = "com.apple.product-type.application";
@@ -223,6 +280,9 @@
 				Base,
 			);
 			mainGroup = 44B1B9C32A8E024800CA7B63;
+			packageReferences = (
+				44B1BA002A8E122300CA7B63 /* XCRemoteSwiftPackageReference "Kingfisher" */,
+			);
 			productRefGroup = 44B1B9CD2A8E024800CA7B63 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -252,15 +312,19 @@
 				44B1B9EC2A8E04FE00CA7B63 /* HeroesNetworkModel.swift in Sources */,
 				44B1B9F52A8E0ADE00CA7B63 /* UIcolor + extension.swift in Sources */,
 				44B1B9FC2A8E0C7200CA7B63 /* HeroModel.swift in Sources */,
+				44B1BA0B2A8E4D2C00CA7B63 /* DetailScreenView.swift in Sources */,
 				44B1B9D42A8E024800CA7B63 /* MainScreenView.swift in Sources */,
+				44B1BA0D2A8E504400CA7B63 /* DetailViewModelProtocol.swift in Sources */,
 				44B1B9FA2A8E0BB000CA7B63 /* MainScreenViewModelProtocol.swift in Sources */,
 				44B1B9D02A8E024800CA7B63 /* AppDelegate.swift in Sources */,
 				44B1B9FF2A8E10CC00CA7B63 /* MainScreenCollectionCell.swift in Sources */,
 				44B1B9EE2A8E051F00CA7B63 /* HeroesNetworkServiceProtocol.swift in Sources */,
+				44B1BA052A8E181100CA7B63 /* FlowController.swift in Sources */,
 				44B1B9F72A8E0B5100CA7B63 /* MainScreenViewModel.swift in Sources */,
 				44B1B9D22A8E024800CA7B63 /* SceneDelegate.swift in Sources */,
 				44B1B9F02A8E054500CA7B63 /* NetworkErrors.swift in Sources */,
 				44B1B9F22A8E05BF00CA7B63 /* NetworkService.swift in Sources */,
+				44B1BA0F2A8E50BC00CA7B63 /* DetailViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -466,6 +530,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		44B1BA002A8E122300CA7B63 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		44B1BA012A8E122300CA7B63 /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 44B1BA002A8E122300CA7B63 /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 44B1B9C42A8E024800CA7B63 /* Project object */;
 }

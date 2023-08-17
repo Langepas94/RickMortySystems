@@ -26,16 +26,17 @@ class MainScreenViewModel: MainScreenViewModelProtocol {
         case onDetailScreen(Int)
     }
     
-    var passData: ((HeroModelOnTable) -> Void)?
+    var passData: ((HeroModelDataObject) -> Void)?
     var service = NetworkService()
     @Published private(set) var state: State = .idle
+    weak var flowController: FlowController?
     
     // MARK: - Private properties
     
     private var maximumPage: Int?
     private var pagesIsCancel: Bool = false
     private var currentPage: Int = 1
-    private var model: [HeroModelOnTable]? = [HeroModelOnTable]()
+    private var model: [HeroModelDataObject]? = [HeroModelDataObject]()
     
     func send(event: Event) {
         switch event {
@@ -48,12 +49,17 @@ class MainScreenViewModel: MainScreenViewModelProtocol {
             
             currentPage = 1
             fetchData()
-            
             self.state = .loaded
-        case .onDetailScreen(let index):
-//            goToDetailScreen(index: index)
-            break
+            
+            case .onDetailScreen(let index):
+            goToDetail(index)
         }
+    }
+    
+    func getModel() -> [HeroModelDataObject] {
+
+        self.model ?? [HeroModelDataObject]()
+        
     }
     
     // MARK: - Private methods
@@ -64,16 +70,22 @@ class MainScreenViewModel: MainScreenViewModelProtocol {
             switch result {
             case .success(let data):
                     let charData = data?.results
-                    let heroModels = charData?.map{HeroModelOnTable(data: $0)}
+                    let heroModels = charData?.map{HeroModelDataObject(data: $0)}
                     self.maximumPage = data?.info?.pages
                     self.model?.append(contentsOf: heroModels ?? [])
                     self.state = .loaded
-//                    self.handleResponse(success: true)
+
             case .failure(_):
-//                self.handleResponse(success: false)
+
                 self.state = .error
             }
         }
+    }
+    
+    private func goToDetail(_ index: Int) {
+        guard let returnedModel = model?[index] else { return }
+//        passData?(returnedModel)
+        flowController?.goToDetailScreen(returnedModel)
     }
     
     private func nextPage() {
@@ -86,4 +98,6 @@ class MainScreenViewModel: MainScreenViewModelProtocol {
             pagesIsCancel = true
         }
     }
+    
+    
 }

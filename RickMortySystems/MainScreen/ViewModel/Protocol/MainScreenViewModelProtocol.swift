@@ -8,5 +8,5 @@
 import Foundation
 
 protocol MainScreenViewModelProtocol {
-    var passData: ((HeroModelOnTable) -> Void)? { get set }
+    var passData: ((HeroModelDataObject) -> Void)? { get set }
 }

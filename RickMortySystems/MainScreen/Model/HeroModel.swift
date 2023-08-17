@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct HeroModelOnTable {
+struct HeroModelDataObject: Hashable {
     
     var description: String
     var setIshiddenErrorView: Bool = true
@@ -19,7 +19,7 @@ struct HeroModelOnTable {
     var gender: String
     var origin: Location
     var location: Location
-    
+    private let identifier = UUID()
     init(data: CharacterResult) {
         self.name = data.name ?? ""
         self.image = data.image ?? ""
@@ -43,10 +43,13 @@ struct HeroModelOnTable {
         self.location = location
         self.description = description
     }
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(identifier)
+    }
 }
 
-extension HeroModelOnTable : Equatable {
-    static func == (lhs: HeroModelOnTable, rhs: HeroModelOnTable) -> Bool {
+extension HeroModelDataObject : Equatable {
+    static func == (lhs: HeroModelDataObject, rhs: HeroModelDataObject) -> Bool {
         lhs.description == rhs.description && lhs.name == rhs.name && lhs.image == rhs.image && lhs.status == rhs.status && lhs.species == rhs.species && lhs.type == rhs.type && lhs.gender == rhs.gender && lhs.origin == rhs.origin && lhs.location == rhs.location
     }
 }
