@@ -9,19 +9,37 @@
 /* Begin PBXBuildFile section */
 		44B1B9D02A8E024800CA7B63 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44B1B9CF2A8E024800CA7B63 /* AppDelegate.swift */; };
 		44B1B9D22A8E024800CA7B63 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44B1B9D12A8E024800CA7B63 /* SceneDelegate.swift */; };
-		44B1B9D42A8E024800CA7B63 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44B1B9D32A8E024800CA7B63 /* ViewController.swift */; };
+		44B1B9D42A8E024800CA7B63 /* MainScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44B1B9D32A8E024800CA7B63 /* MainScreenView.swift */; };
 		44B1B9D92A8E024900CA7B63 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 44B1B9D82A8E024900CA7B63 /* Assets.xcassets */; };
 		44B1B9DC2A8E024900CA7B63 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 44B1B9DA2A8E024900CA7B63 /* LaunchScreen.storyboard */; };
+		44B1B9EC2A8E04FE00CA7B63 /* HeroesNetworkModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44B1B9EB2A8E04FE00CA7B63 /* HeroesNetworkModel.swift */; };
+		44B1B9EE2A8E051F00CA7B63 /* HeroesNetworkServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44B1B9ED2A8E051F00CA7B63 /* HeroesNetworkServiceProtocol.swift */; };
+		44B1B9F02A8E054500CA7B63 /* NetworkErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44B1B9EF2A8E054500CA7B63 /* NetworkErrors.swift */; };
+		44B1B9F22A8E05BF00CA7B63 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44B1B9F12A8E05BF00CA7B63 /* NetworkService.swift */; };
+		44B1B9F52A8E0ADE00CA7B63 /* UIcolor + extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44B1B9F42A8E0ADE00CA7B63 /* UIcolor + extension.swift */; };
+		44B1B9F72A8E0B5100CA7B63 /* MainScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44B1B9F62A8E0B5100CA7B63 /* MainScreenViewModel.swift */; };
+		44B1B9FA2A8E0BB000CA7B63 /* MainScreenViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44B1B9F92A8E0BB000CA7B63 /* MainScreenViewModelProtocol.swift */; };
+		44B1B9FC2A8E0C7200CA7B63 /* HeroModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44B1B9FB2A8E0C7200CA7B63 /* HeroModel.swift */; };
+		44B1B9FF2A8E10CC00CA7B63 /* MainScreenCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44B1B9FE2A8E10CC00CA7B63 /* MainScreenCollectionCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		44B1B9CC2A8E024800CA7B63 /* RickMortySystems.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RickMortySystems.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		44B1B9CF2A8E024800CA7B63 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		44B1B9D12A8E024800CA7B63 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		44B1B9D32A8E024800CA7B63 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		44B1B9D32A8E024800CA7B63 /* MainScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenView.swift; sourceTree = "<group>"; };
 		44B1B9D82A8E024900CA7B63 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		44B1B9DB2A8E024900CA7B63 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		44B1B9DD2A8E024900CA7B63 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		44B1B9EB2A8E04FE00CA7B63 /* HeroesNetworkModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroesNetworkModel.swift; sourceTree = "<group>"; };
+		44B1B9ED2A8E051F00CA7B63 /* HeroesNetworkServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroesNetworkServiceProtocol.swift; sourceTree = "<group>"; };
+		44B1B9EF2A8E054500CA7B63 /* NetworkErrors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkErrors.swift; sourceTree = "<group>"; };
+		44B1B9F12A8E05BF00CA7B63 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		44B1B9F42A8E0ADE00CA7B63 /* UIcolor + extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIcolor + extension.swift"; sourceTree = "<group>"; };
+		44B1B9F62A8E0B5100CA7B63 /* MainScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenViewModel.swift; sourceTree = "<group>"; };
+		44B1B9F92A8E0BB000CA7B63 /* MainScreenViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenViewModelProtocol.swift; sourceTree = "<group>"; };
+		44B1B9FB2A8E0C7200CA7B63 /* HeroModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroModel.swift; sourceTree = "<group>"; };
+		44B1B9FE2A8E10CC00CA7B63 /* MainScreenCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenCollectionCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,7 +72,8 @@
 		44B1B9CE2A8E024800CA7B63 /* RickMortySystems */ = {
 			isa = PBXGroup;
 			children = (
-				44B1B9E52A8E035000CA7B63 /* NetworkManager */,
+				44B1B9E92A8E041B00CA7B63 /* Extensions */,
+				44B1B9E52A8E035000CA7B63 /* NetworkLayer */,
 				44B1B9E42A8E034500CA7B63 /* MainScreen */,
 				44B1B9E32A8E033200CA7B63 /* app */,
 				44B1B9D82A8E024900CA7B63 /* Assets.xcassets */,
@@ -83,16 +102,21 @@
 			path = MainScreen;
 			sourceTree = "<group>";
 		};
-		44B1B9E52A8E035000CA7B63 /* NetworkManager */ = {
+		44B1B9E52A8E035000CA7B63 /* NetworkLayer */ = {
 			isa = PBXGroup;
 			children = (
+				44B1B9F32A8E05C200CA7B63 /* NetworkModel */,
+				44B1B9EA2A8E046000CA7B63 /* Protocol */,
+				44B1B9EF2A8E054500CA7B63 /* NetworkErrors.swift */,
+				44B1B9F12A8E05BF00CA7B63 /* NetworkService.swift */,
 			);
-			path = NetworkManager;
+			path = NetworkLayer;
 			sourceTree = "<group>";
 		};
 		44B1B9E62A8E035800CA7B63 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				44B1B9FB2A8E0C7200CA7B63 /* HeroModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -100,7 +124,8 @@
 		44B1B9E72A8E035D00CA7B63 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				44B1B9D32A8E024800CA7B63 /* ViewController.swift */,
+				44B1B9FD2A8E10AA00CA7B63 /* CollectionCell */,
+				44B1B9D32A8E024800CA7B63 /* MainScreenView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -108,8 +133,50 @@
 		44B1B9E82A8E036300CA7B63 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				44B1B9F82A8E0B9400CA7B63 /* Protocol */,
+				44B1B9F62A8E0B5100CA7B63 /* MainScreenViewModel.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		44B1B9E92A8E041B00CA7B63 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				44B1B9F42A8E0ADE00CA7B63 /* UIcolor + extension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		44B1B9EA2A8E046000CA7B63 /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				44B1B9ED2A8E051F00CA7B63 /* HeroesNetworkServiceProtocol.swift */,
+			);
+			path = Protocol;
+			sourceTree = "<group>";
+		};
+		44B1B9F32A8E05C200CA7B63 /* NetworkModel */ = {
+			isa = PBXGroup;
+			children = (
+				44B1B9EB2A8E04FE00CA7B63 /* HeroesNetworkModel.swift */,
+			);
+			path = NetworkModel;
+			sourceTree = "<group>";
+		};
+		44B1B9F82A8E0B9400CA7B63 /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				44B1B9F92A8E0BB000CA7B63 /* MainScreenViewModelProtocol.swift */,
+			);
+			path = Protocol;
+			sourceTree = "<group>";
+		};
+		44B1B9FD2A8E10AA00CA7B63 /* CollectionCell */ = {
+			isa = PBXGroup;
+			children = (
+				44B1B9FE2A8E10CC00CA7B63 /* MainScreenCollectionCell.swift */,
+			);
+			path = CollectionCell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -182,9 +249,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				44B1B9D42A8E024800CA7B63 /* ViewController.swift in Sources */,
+				44B1B9EC2A8E04FE00CA7B63 /* HeroesNetworkModel.swift in Sources */,
+				44B1B9F52A8E0ADE00CA7B63 /* UIcolor + extension.swift in Sources */,
+				44B1B9FC2A8E0C7200CA7B63 /* HeroModel.swift in Sources */,
+				44B1B9D42A8E024800CA7B63 /* MainScreenView.swift in Sources */,
+				44B1B9FA2A8E0BB000CA7B63 /* MainScreenViewModelProtocol.swift in Sources */,
 				44B1B9D02A8E024800CA7B63 /* AppDelegate.swift in Sources */,
+				44B1B9FF2A8E10CC00CA7B63 /* MainScreenCollectionCell.swift in Sources */,
+				44B1B9EE2A8E051F00CA7B63 /* HeroesNetworkServiceProtocol.swift in Sources */,
+				44B1B9F72A8E0B5100CA7B63 /* MainScreenViewModel.swift in Sources */,
 				44B1B9D22A8E024800CA7B63 /* SceneDelegate.swift in Sources */,
+				44B1B9F02A8E054500CA7B63 /* NetworkErrors.swift in Sources */,
+				44B1B9F22A8E05BF00CA7B63 /* NetworkService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -324,7 +400,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = RickMortySystems/Info.plist;
+				INFOPLIST_FILE = RickMortySystems/app/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -350,7 +426,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = RickMortySystems/Info.plist;
+				INFOPLIST_FILE = RickMortySystems/app/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
