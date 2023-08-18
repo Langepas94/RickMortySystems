@@ -25,7 +25,8 @@ struct OriginView: View {
                         .frame(width: 64, height: 64)
                         .background(Color.init(uiColor: .blackBackgroundImage))
                         .cornerRadius(10)
-                        .padding(.all, 5)
+                        .padding([.trailing, .top, .bottom], 5)
+                        .padding(.leading, -10)
                     
                     VStack(alignment: .leading) {
                         Text(name)
