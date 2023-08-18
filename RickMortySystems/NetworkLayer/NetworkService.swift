@@ -14,7 +14,10 @@ class NetworkService: HeroesNetworkServiceProtocol {
         "https://rickandmortyapi.com/api/character"
     }
     
+    // MARK: - get all characters
+    
     func getAllCharacters(page: Int, completion: @escaping (Result<NetworkHeroesDataModel?, NetworkErrors>) -> Void) {
+        
         var urlComponents = URLComponents(string: NetworkService.baseURL())
         let queryItems = [URLQueryItem(name: "page", value: "\(page)")]
         urlComponents?.queryItems = queryItems
@@ -23,7 +26,7 @@ class NetworkService: HeroesNetworkServiceProtocol {
         
         let task = URLSession.shared.dataTask(with: url) { data, response, error in
             
-            if let error = error {
+            if error != nil {
                 completion(.failure(NetworkErrors.notNetworkAvailable))
             }
             guard let data = data else {
@@ -39,6 +42,8 @@ class NetworkService: HeroesNetworkServiceProtocol {
         }
         task.resume()
     }
+    
+    // MARK: - get episodes
     
     func getEpisodeInfo(_ episodes: [String], completion: @escaping (Result<[EpisodeModel]?, NetworkErrors>) -> Void) {
         
@@ -59,40 +64,32 @@ class NetworkService: HeroesNetworkServiceProtocol {
                     do {
                         let jsonData = try JSONDecoder().decode(EpisodeModel.self, from: data)
                         episodesArray.append(jsonData)
-                        
                     } catch {
                         completion(.failure(NetworkErrors.unknownError(error: error.localizedDescription)))
                     }
-                    
                 }
-                
                 task.resume()
             }
-            
         }
         dispatchGroup.notify(queue: .main) {
             completion(.success(episodesArray))
         }
     }
     
+    // MARK: - get origin
+    
     func getOriginInfo(_ location: Location, completion: @escaping (Result<OriginModel?, NetworkErrors>) -> Void) {
-            guard let url = URL(string: location.url ?? "") else { return }
-            let task = URLSession.shared.dataTask(with: url) { data, response, error in
-              
-                guard let data = data else { completion(.failure(NetworkErrors.unknownError(error: response?.description ?? "unknown error")))
-                    return }
-                
-                do {
-                    let jsonData = try JSONDecoder().decode(OriginModel.self, from: data)
-                    completion(.success(jsonData))
-                    
-                } catch {
-                    completion(.failure(NetworkErrors.unknownError(error: error.localizedDescription)))
-                }
-                
+        guard let url = URL(string: location.url ?? "") else { return }
+        let task = URLSession.shared.dataTask(with: url) { data, response, error in
+            guard let data = data else { completion(.failure(NetworkErrors.unknownError(error: response?.description ?? "unknown error")))
+                return }
+            do {
+                let jsonData = try JSONDecoder().decode(OriginModel.self, from: data)
+                completion(.success(jsonData))
+            } catch {
+                completion(.failure(NetworkErrors.unknownError(error: error.localizedDescription)))
             }
-            
-            task.resume()
-        
+        }
+        task.resume()
     }
 }

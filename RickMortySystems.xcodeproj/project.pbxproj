@@ -11,7 +11,6 @@
 		44B1B9D22A8E024800CA7B63 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44B1B9D12A8E024800CA7B63 /* SceneDelegate.swift */; };
 		44B1B9D42A8E024800CA7B63 /* MainScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44B1B9D32A8E024800CA7B63 /* MainScreenView.swift */; };
 		44B1B9D92A8E024900CA7B63 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 44B1B9D82A8E024900CA7B63 /* Assets.xcassets */; };
-		44B1B9DC2A8E024900CA7B63 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 44B1B9DA2A8E024900CA7B63 /* LaunchScreen.storyboard */; };
 		44B1B9EC2A8E04FE00CA7B63 /* HeroesNetworkModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44B1B9EB2A8E04FE00CA7B63 /* HeroesNetworkModel.swift */; };
 		44B1B9EE2A8E051F00CA7B63 /* HeroesNetworkServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44B1B9ED2A8E051F00CA7B63 /* HeroesNetworkServiceProtocol.swift */; };
 		44B1B9F02A8E054500CA7B63 /* NetworkErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44B1B9EF2A8E054500CA7B63 /* NetworkErrors.swift */; };
@@ -33,6 +32,7 @@
 		44B1BA1E2A8FB1CF00CA7B63 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44B1BA1D2A8FB1CF00CA7B63 /* HeaderView.swift */; };
 		44B1BA212A8FB39B00CA7B63 /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44B1BA202A8FB39B00CA7B63 /* ErrorView.swift */; };
 		44B1BA252A8FCD6100CA7B63 /* EpisodesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44B1BA242A8FCD6100CA7B63 /* EpisodesView.swift */; };
+		44B1BA282A8FEBC500CA7B63 /* NetworkChecker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44B1BA272A8FEBC500CA7B63 /* NetworkChecker.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,7 +41,6 @@
 		44B1B9D12A8E024800CA7B63 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		44B1B9D32A8E024800CA7B63 /* MainScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenView.swift; sourceTree = "<group>"; };
 		44B1B9D82A8E024900CA7B63 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		44B1B9DB2A8E024900CA7B63 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		44B1B9DD2A8E024900CA7B63 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		44B1B9EB2A8E04FE00CA7B63 /* HeroesNetworkModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroesNetworkModel.swift; sourceTree = "<group>"; };
 		44B1B9ED2A8E051F00CA7B63 /* HeroesNetworkServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroesNetworkServiceProtocol.swift; sourceTree = "<group>"; };
@@ -63,6 +62,7 @@
 		44B1BA1D2A8FB1CF00CA7B63 /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
 		44B1BA202A8FB39B00CA7B63 /* ErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
 		44B1BA242A8FCD6100CA7B63 /* EpisodesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodesView.swift; sourceTree = "<group>"; };
+		44B1BA272A8FEBC500CA7B63 /* NetworkChecker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkChecker.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,7 +104,6 @@
 				44B1B9E52A8E035000CA7B63 /* NetworkLayer */,
 				44B1B9E32A8E033200CA7B63 /* app */,
 				44B1B9D82A8E024900CA7B63 /* Assets.xcassets */,
-				44B1B9DA2A8E024900CA7B63 /* LaunchScreen.storyboard */,
 			);
 			path = RickMortySystems;
 			sourceTree = "<group>";
@@ -132,6 +131,7 @@
 		44B1B9E52A8E035000CA7B63 /* NetworkLayer */ = {
 			isa = PBXGroup;
 			children = (
+				44B1BA262A8FEBB000CA7B63 /* NetworkChecker */,
 				44B1B9F32A8E05C200CA7B63 /* NetworkModel */,
 				44B1B9EA2A8E046000CA7B63 /* Protocol */,
 				44B1B9EF2A8E054500CA7B63 /* NetworkErrors.swift */,
@@ -294,6 +294,14 @@
 			path = ErrorScreen;
 			sourceTree = "<group>";
 		};
+		44B1BA262A8FEBB000CA7B63 /* NetworkChecker */ = {
+			isa = PBXGroup;
+			children = (
+				44B1BA272A8FEBC500CA7B63 /* NetworkChecker.swift */,
+			);
+			path = NetworkChecker;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -358,7 +366,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				44B1B9DC2A8E024900CA7B63 /* LaunchScreen.storyboard in Resources */,
 				44B1B9D92A8E024900CA7B63 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -384,6 +391,7 @@
 				44B1BA182A8F903500CA7B63 /* EpisodeCell.swift in Sources */,
 				44B1BA152A8F8D6300CA7B63 /* OriginView.swift in Sources */,
 				44B1BA1B2A8F93EC00CA7B63 /* ProfileView.swift in Sources */,
+				44B1BA282A8FEBC500CA7B63 /* NetworkChecker.swift in Sources */,
 				44B1BA1E2A8FB1CF00CA7B63 /* HeaderView.swift in Sources */,
 				44B1B9EE2A8E051F00CA7B63 /* HeroesNetworkServiceProtocol.swift in Sources */,
 				44B1BA052A8E181100CA7B63 /* FlowController.swift in Sources */,
@@ -397,17 +405,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXVariantGroup section */
-		44B1B9DA2A8E024900CA7B63 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				44B1B9DB2A8E024900CA7B63 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		44B1B9DE2A8E024900CA7B63 /* Debug */ = {
@@ -534,7 +531,6 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = RickMortySystems/app/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -560,7 +556,6 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = RickMortySystems/app/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (

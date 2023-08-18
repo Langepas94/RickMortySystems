@@ -30,9 +30,9 @@
             filePath = "RickMortySystems/DetailScreen/ViewModel/DetailViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "80"
-            endingLineNumber = "80"
-            landmarkName = "init(model:networkManager:)"
+            startingLineNumber = "92"
+            endingLineNumber = "92"
+            landmarkName = "configureData()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -62,8 +62,8 @@
             filePath = "RickMortySystems/NetworkLayer/NetworkService.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "43"
-            endingLineNumber = "43"
+            startingLineNumber = "48"
+            endingLineNumber = "48"
             landmarkName = "getEpisodeInfo(_:completion:)"
             landmarkType = "9">
             <Locations>
@@ -397,8 +397,8 @@
             filePath = "RickMortySystems/MainScreen/ViewModel/MainScreenViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "67"
-            endingLineNumber = "67"
+            startingLineNumber = "68"
+            endingLineNumber = "68"
             landmarkName = "fetchData()"
             landmarkType = "7">
             <Locations>

@@ -55,19 +55,23 @@ final class MainScreenViewModel: MainScreenViewModelProtocol {
     // MARK: - Private methods
     
     private func fetchData() {
-        self.state = .loading
-        self.service.getAllCharacters(page: currentPage) { [weak self] result in
-            guard let self = self else { return }
-            switch result {
-            case .success(let data):
-                let charData = data?.results
-                let heroModels = charData?.map{HeroModelDataObject(data: $0)}
-                self.maximumPage = data?.info?.pages
-                self.model?.append(contentsOf: heroModels ?? [])
-                self.state = .loaded
-            case .failure(_):
-                self.state = .error
+        if NetworkChecker.shared.isConnected {
+            self.state = .loading
+            self.service.getAllCharacters(page: currentPage) { [weak self] result in
+                guard let self = self else { return }
+                switch result {
+                case .success(let data):
+                    let charData = data?.results
+                    let heroModels = charData?.map{HeroModelDataObject(data: $0)}
+                    self.maximumPage = data?.info?.pages
+                    self.model?.append(contentsOf: heroModels ?? [])
+                    self.state = .loaded
+                case .failure(_):
+                    self.state = .error
+                }
             }
+        } else {
+            self.state = .error
         }
     }
     

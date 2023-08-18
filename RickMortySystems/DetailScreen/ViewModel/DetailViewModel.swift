@@ -25,8 +25,15 @@ final class DetailViewModel: DetailViewModelProtocol, ObservableObject {
             case .success(let data):
                 guard let data = data else { return }
                 self?.episodes = data
-            case .failure(_):
-                break
+            case .failure(let error):
+                switch error {
+                case .notNetworkAvailable:
+                    print("check your connection")
+                case .incorrectURL:
+                    print("check url")
+                case .unknownError(error: let error):
+                    print(error)
+                }
             }
         }
     }
@@ -48,11 +55,16 @@ final class DetailViewModel: DetailViewModelProtocol, ObservableObject {
     // MARK: - Public methods
     
     func configureData() {
-        self.getOrigin()
-        self.getEpisodes()
-        DispatchQueue.main.async {
-            self.isLoaded = true
+        if NetworkChecker.shared.isConnected {
+            self.getOrigin()
+            self.getEpisodes()
+            DispatchQueue.main.async {
+                self.isLoaded = true
+            }
+        } else {
+            print("no data, check your internet")
         }
+
     }
     
     func episodeNumber(from string: String) -> String {
