@@ -37,8 +37,8 @@ final class MainScreenCollectionCell: UICollectionViewCell {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        heroImage.layer.cornerRadius = 10
-        self.layer.cornerRadius = 10
+        heroImage.layer.cornerRadius = 16
+        self.layer.cornerRadius = 16
         self.layer.masksToBounds = true
     }
     
@@ -75,7 +75,7 @@ extension MainScreenCollectionCell {
         addSubview(heroNameLabel)
         
         NSLayoutConstraint.activate([
-            heroImage.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 10),
+            heroImage.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 8),
             heroImage.heightAnchor.constraint(equalToConstant: 140),
             heroImage.widthAnchor.constraint(equalToConstant: 140),
             heroImage.centerXAnchor.constraint(equalTo: centerXAnchor),

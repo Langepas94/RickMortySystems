@@ -13,4 +13,5 @@ extension UIColor {
     static let cellColor = UIColor(red: 38 / 255, green: 42 / 255, blue: 56 / 255, alpha: 1.0)
     static let grayText = UIColor(red: 196 / 255, green: 201 / 255, blue: 206 / 255, alpha: 1.0)
     static let blackBackgroundImage = UIColor(red: 25 / 255, green: 28 / 255, blue: 42 / 255, alpha: 1.0)
+    static let greenLabel = UIColor(red: 71 / 255, green: 198 / 255, blue: 11 / 255, alpha: 1.0)
 }

@@ -31,7 +31,7 @@ struct ProfileView: View {
                     .foregroundColor(Color.white)
                 Text(status)
                     .font(.system(size: 16))
-                    .foregroundColor(Color.green)
+                    .foregroundColor(Color.init(uiColor: .greenLabel))
             }
             if !isLoading {
                 ProgressView()

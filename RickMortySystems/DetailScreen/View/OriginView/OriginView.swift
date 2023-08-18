@@ -13,42 +13,54 @@ struct OriginView: View {
     var isLoading = false
     
     var body: some View {
-        ZStack {
-            VStack(alignment: .leading) {
-                Text("Origin")
-                    .font(.system(size: 17, weight: .bold))
-                    .foregroundColor(Color.white)
-                HStack {
-                    Image(systemName: "globe.europe.africa")
-                        .font(.system(size: 30))
-                        .foregroundColor(Color.white)
-                        .frame(width: 64, height: 64)
-                        .background(Color.init(uiColor: .blackBackgroundImage))
-                        .cornerRadius(10)
-                        .padding([.trailing, .top, .bottom], 5)
-                        .padding(.leading, -10)
-                    
-                    VStack(alignment: .leading) {
-                        Text(name)
-                            .font(.system(size: 17))
+        
+        VStack(alignment: .leading, spacing: 8) {
+            Text("Origin")
+                .font(.system(size: 17, weight: .bold))
+                .foregroundColor(Color.white)
+            
+            ZStack(alignment: .leading) {
+                Color.init(uiColor: .cellColor)
+                
+                HStack(spacing: 8) {
+                    ZStack {
+                        Rectangle()
+                            .foregroundColor(Color.init(uiColor: .blackBackgroundImage))
+                            .frame(width: 64, height: 64)
+                            .cornerRadius(10)
+                        
+                        Image(systemName: "globe.europe.africa")
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
                             .foregroundColor(Color.white)
+                            .frame(width: 24, height: 24)
+                    }
+                    
+                    .padding(EdgeInsets(top: 8, leading: 8, bottom: 8, trailing: 0))
+                    
+                    VStack(alignment: .leading, spacing: 8) {
+                        Text(name)
+                            .font(.system(size: 17, weight: .bold))
+                            .foregroundColor(Color.white)
+                            .padding(.top, 16)
                         
                         Text(type)
                             .font(.system(size: 13))
                             .foregroundColor(Color.green)
+                            .padding(.bottom, 16)
                     }
-                    Spacer()
                 }
-                .padding([.leading, .trailing])
-                .background(Color.init(uiColor: .cellColor))
-                .cornerRadius(10)
+                
+                if !isLoading {
+                    ProgressView()
+                        .progressViewStyle(CircularProgressViewStyle(tint: .blue))
+                        .frame(maxWidth: .infinity, maxHeight: .infinity)
+                        .edgesIgnoringSafeArea(.all)
+                }
             }
-            if !isLoading {
-                ProgressView()
-                    .progressViewStyle(CircularProgressViewStyle(tint: .blue))
-                                                .frame(maxWidth: .infinity, maxHeight: .infinity)
-                                                .edgesIgnoringSafeArea(.all)
-            }
+            .cornerRadius(10)
+            
+            
         }
     }
 }

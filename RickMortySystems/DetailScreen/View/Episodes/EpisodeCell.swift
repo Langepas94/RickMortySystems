@@ -19,21 +19,22 @@ struct EpisodeCell: View {
             VStack {
                 HStack {
                     Text(episodeName)
-                        .font(.system(size: 17))
+                        .font(.system(size: 17, weight: .bold))
                         .foregroundColor(Color.white)
-                        .padding([.bottom, .top], 5)
+                        .padding(.top, 16)
                     Spacer()
                 }
+                .padding(.bottom, 8)
                 HStack {
                     Text(episodeDetails)
                         .font(.system(size: 13))
                         .foregroundColor(Color.green)
-                        .padding([.bottom, .top], 5)
+                        .padding(.bottom, 16)
                     Spacer()
                     Text(episodeDate)
                         .font(.system(size: 13))
                         .foregroundColor(Color.init(uiColor: .grayText))
-                        .padding([.bottom, .top], 5)
+                        .padding(.bottom , 16)
                 }
             }
             .padding([.leading, .trailing])

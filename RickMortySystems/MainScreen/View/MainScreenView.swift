@@ -76,7 +76,7 @@ final class MainScreenView: UIViewController {
             heightDimension: .fractionalHeight(1))
 
         let item = NSCollectionLayoutItem(layoutSize: itemSize)
-        item.contentInsets = .init(top: 10, leading: 10, bottom: 10, trailing: 10)
+        item.contentInsets = .init(top: 8, leading: 8, bottom: 8, trailing: 8)
         
         let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1),
                                                heightDimension: .fractionalHeight(0.26))
@@ -91,7 +91,7 @@ final class MainScreenView: UIViewController {
             layoutSize: headerSize,
             elementKind: UICollectionView.elementKindSectionHeader,
             alignment: .top)
-        
+        section.contentInsets = .init(top: 8, leading: 16, bottom: 8, trailing: 16)
         section.boundarySupplementaryItems = [sectionHeader]
         return section
     }
