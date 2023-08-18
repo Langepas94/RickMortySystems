@@ -36,5 +36,100 @@
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "A1311DAF-D398-45D1-941F-04EC960562DA"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "RickMortySystems/DetailScreen/ViewModel/DetailViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "78"
+            endingLineNumber = "78"
+            landmarkName = "init(model:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "74A58523-A375-4D0C-84C6-C6A5749BE71A"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "RickMortySystems/DetailScreen/ViewModel/DetailViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "17"
+            endingLineNumber = "17"
+            landmarkName = "getEpisodes()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "13DCC3EC-D998-4971-AA6A-14CD3D9ED3E9"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "RickMortySystems/NetworkLayer/NetworkService.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "43"
+            endingLineNumber = "43"
+            landmarkName = "getEpisodeInfo(_:completion:)"
+            landmarkType = "9">
+            <Locations>
+               <Location
+                  uuid = "13DCC3EC-D998-4971-AA6A-14CD3D9ED3E9 - c03e21b202b383c"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "RickMortySystems.NetworkService.getEpisodeInfo(_: Swift.Array&lt;Swift.String&gt;, completion: (Swift.Result&lt;Swift.Optional&lt;Swift.Array&lt;RickMortySystems.EpisodeModel&gt;&gt;, RickMortySystems.NetworkErrors&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "RickMortySystems"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/artemturmorezov/Desktop/RickMortySystems/RickMortySystems/NetworkLayer/NetworkService.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "44"
+                  endingLineNumber = "44"
+                  offsetFromSymbolStart = "372">
+               </Location>
+               <Location
+                  uuid = "13DCC3EC-D998-4971-AA6A-14CD3D9ED3E9 - c03e21b202b383c"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "RickMortySystems.NetworkService.getEpisodeInfo(_: Swift.Array&lt;Swift.String&gt;, completion: (Swift.Result&lt;Swift.Optional&lt;Swift.Array&lt;RickMortySystems.EpisodeModel&gt;&gt;, RickMortySystems.NetworkErrors&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "RickMortySystems"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/artemturmorezov/Desktop/RickMortySystems/RickMortySystems/NetworkLayer/NetworkService.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "44"
+                  endingLineNumber = "44"
+                  offsetFromSymbolStart = "220">
+               </Location>
+               <Location
+                  uuid = "13DCC3EC-D998-4971-AA6A-14CD3D9ED3E9 - c03e21b202b383c"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "RickMortySystems.NetworkService.getEpisodeInfo(_: Swift.Array&lt;Swift.String&gt;, completion: (Swift.Result&lt;Swift.Optional&lt;Swift.Array&lt;RickMortySystems.EpisodeModel&gt;&gt;, RickMortySystems.NetworkErrors&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "RickMortySystems"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/artemturmorezov/Desktop/RickMortySystems/RickMortySystems/NetworkLayer/NetworkService.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "44"
+                  endingLineNumber = "44"
+                  offsetFromSymbolStart = "344">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
    </Breakpoints>
 </Bucket>

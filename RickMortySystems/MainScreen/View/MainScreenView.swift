@@ -60,7 +60,7 @@ final class MainScreenView: UIViewController {
         item.contentInsets = .init(top: 10, leading: 10, bottom: 10, trailing: 10)
         
         let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1),
-                                               heightDimension: .fractionalHeight(0.3))
+                                               heightDimension: .fractionalHeight(0.25))
         
         let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
         
@@ -133,7 +133,8 @@ extension MainScreenView {
 extension MainScreenView {
     
     func setupUI() {
-        view.backgroundColor = .bgColor
+        title = "Characters"
+//        view.backgroundColor = .bgColor
         view.addSubview(mainCollection)
     }
 }
@@ -141,9 +142,11 @@ extension MainScreenView {
 extension MainScreenView: UICollectionViewDelegate {
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        
         let offsetY = scrollView.contentOffset.y
         let height = scrollView.contentSize.height
         if offsetY > height - scrollView.frame.height {
+            
             self.viewModel?.send(event: .onPageScroll)
             configureDataSource()
         }

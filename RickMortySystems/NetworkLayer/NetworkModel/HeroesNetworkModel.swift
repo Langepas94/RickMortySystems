@@ -39,3 +39,20 @@ struct Location: Decodable, Equatable {
     let name: String?
     let url: String?
 }
+
+struct OriginModel: Decodable {
+    let name: String
+    let type: String
+}
+
+struct EpisodeModel: Decodable {
+    let name: String
+    let airDate: String
+    let episode: String
+    
+    enum CodingKeys: String, CodingKey {
+           case name
+           case airDate = "air_date"
+           case episode
+       }
+}

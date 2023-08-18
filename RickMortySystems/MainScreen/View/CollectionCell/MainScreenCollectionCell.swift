@@ -65,11 +65,11 @@ extension MainScreenCollectionCell {
             heroImage.heightAnchor.constraint(equalToConstant: 140),
             heroImage.widthAnchor.constraint(equalToConstant: 140),
             heroImage.centerXAnchor.constraint(equalTo: centerXAnchor),
-            heroImage.bottomAnchor.constraint(equalTo: heroNameLabel.topAnchor, constant: -10),
+            heroImage.bottomAnchor.constraint(equalTo: heroNameLabel.topAnchor, constant: 10),
 
             heroNameLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
             heroNameLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
-            heroNameLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: 10),
+            heroNameLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: 5),
             heroNameLabel.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
         ])
         

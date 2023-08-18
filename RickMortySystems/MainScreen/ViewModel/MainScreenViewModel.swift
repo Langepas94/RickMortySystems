@@ -84,7 +84,6 @@ class MainScreenViewModel: MainScreenViewModelProtocol {
     
     private func goToDetail(_ index: Int) {
         guard let returnedModel = model?[index] else { return }
-//        passData?(returnedModel)
         flowController?.goToDetailScreen(returnedModel)
     }
     

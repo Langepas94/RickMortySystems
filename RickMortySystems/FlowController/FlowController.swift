@@ -14,12 +14,18 @@ final class FlowController: UINavigationController {
     // MARK: - Private methods
     
     private func goToMainScreen() {
+        self.navigationBar.prefersLargeTitles = true
+        self.navigationBar.standardAppearance.backgroundColor = .bgColor
+        self.navigationBar.standardAppearance.titleTextAttributes = [.foregroundColor: UIColor.white]
+        self.navigationBar.standardAppearance.largeTitleTextAttributes = [.foregroundColor: UIColor.white]
+        self.navigationBar.scrollEdgeAppearance = navigationBar.standardAppearance
         let mainView = MainScreenView()
         mainView.viewModel  = viewModel
         
         viewModel.flowController = self
-        self.navigationBar.prefersLargeTitles = true
+        
         self.pushViewController(mainView, animated: false)
+      
     }
     
     func goToDetailScreen(_ model: HeroModelDataObject) {
@@ -32,6 +38,8 @@ final class FlowController: UINavigationController {
         backButton.tintColor = .white
         self.navigationBar.topItem?.backBarButtonItem = backButton
     }
+    
+   
     
     public init() {
             super.init(nibName: nil, bundle: nil)

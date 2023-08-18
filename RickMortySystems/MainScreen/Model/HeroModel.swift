@@ -17,6 +17,7 @@ struct HeroModelDataObject: Hashable {
     var species: String
     var type: String
     var gender: String
+    var episodes: [String]
     var origin: Location
     var location: Location
     private let identifier = UUID()
@@ -30,9 +31,10 @@ struct HeroModelDataObject: Hashable {
         self.origin = data.origin ?? Location(name: "", url: "")
         self.location = data.location ?? Location(name: "", url: "")
         self.description = "\(species) - \(status)"
+        self.episodes = data.episode ?? [""]
     }
 
-    init(image: String, name: String, status: String, species: String, type: String, gender: String, origin: Location, location: Location, description: String) {
+    init(image: String, name: String, status: String, species: String, type: String, gender: String, origin: Location, location: Location, description: String, episodes: [String]) {
         self.image = image
         self.name = name
         self.status = status
@@ -42,6 +44,7 @@ struct HeroModelDataObject: Hashable {
         self.origin = origin
         self.location = location
         self.description = description
+        self.episodes = episodes
     }
     func hash(into hasher: inout Hasher) {
         hasher.combine(identifier)
