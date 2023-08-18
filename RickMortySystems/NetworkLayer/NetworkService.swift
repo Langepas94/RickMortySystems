@@ -22,9 +22,15 @@ class NetworkService: HeroesNetworkServiceProtocol {
         let queryItems = [URLQueryItem(name: "page", value: "\(page)")]
         urlComponents?.queryItems = queryItems
         let completedURL = urlComponents?.url
+        
+        let sessionConfig = URLSessionConfiguration.default
+        sessionConfig.timeoutIntervalForRequest = 5.0
+        sessionConfig.timeoutIntervalForResource = 10.0
+        let session = URLSession(configuration: sessionConfig)
+        
         guard let url = completedURL else { return }
         
-        let task = URLSession.shared.dataTask(with: url) { data, response, error in
+        let task = session.dataTask(with: url) { data, response, error in
             
             if error != nil {
                 completion(.failure(NetworkErrors.notNetworkAvailable))
