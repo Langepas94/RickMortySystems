@@ -58,9 +58,16 @@ final class DetailViewModel: DetailViewModelProtocol, ObservableObject {
         if NetworkChecker.shared.isConnected {
             self.getOrigin()
             self.getEpisodes()
-            DispatchQueue.main.async {
+            DispatchQueue.main.async{
                 self.isLoaded = true
             }
+            
+            // if u want check spinner uncomment this
+            
+//            DispatchQueue.main.asyncAfter(deadline: .now() + 2){
+//                self.isLoaded = true
+//            }
+            
         } else {
             print("no data, check your internet")
         }

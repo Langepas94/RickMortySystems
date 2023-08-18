@@ -24,8 +24,8 @@ class NetworkService: HeroesNetworkServiceProtocol {
         let completedURL = urlComponents?.url
         
         let sessionConfig = URLSessionConfiguration.default
-        sessionConfig.timeoutIntervalForRequest = 5.0
-        sessionConfig.timeoutIntervalForResource = 10.0
+        sessionConfig.timeoutIntervalForRequest = 10.0
+        sessionConfig.timeoutIntervalForResource = 20.0
         let session = URLSession(configuration: sessionConfig)
         
         guard let url = completedURL else { return }
