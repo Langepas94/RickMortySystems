@@ -23,6 +23,7 @@ final class MainScreenView: UIViewController {
         collection.autoresizingMask = [.flexibleHeight, .flexibleWidth]
         collection.translatesAutoresizingMaskIntoConstraints = false
         collection.register(MainScreenCollectionCell.self, forCellWithReuseIdentifier: MainScreenCollectionCell.reuseID)
+        collection.register(Header.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: Header.reuseID)
         collection.frame = view.bounds
         collection.backgroundColor = .bgColor
         return collection
@@ -65,6 +66,16 @@ final class MainScreenView: UIViewController {
         let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
         
         let section = NSCollectionLayoutSection(group: group)
+        let headerSize = NSCollectionLayoutSize(
+               widthDimension: .fractionalWidth(1.0),
+               heightDimension: .estimated(44))
+           
+           let sectionHeader = NSCollectionLayoutBoundarySupplementaryItem(
+               layoutSize: headerSize,
+               elementKind: UICollectionView.elementKindSectionHeader,
+               alignment: .top)
+        
+        section.boundarySupplementaryItems = [sectionHeader]
         return section
     }
     
@@ -113,6 +124,20 @@ extension MainScreenView {
             }
         }
         
+        dataSource.supplementaryViewProvider = { [weak self] collectionView, kind, indexPath in
+                guard let self = self else { return nil }
+                
+                if kind == UICollectionView.elementKindSectionHeader {
+                    let headerView = collectionView.dequeueReusableSupplementaryView(
+                        ofKind: kind,
+                        withReuseIdentifier: Header.reuseID,
+                        for: indexPath) as! Header
+                    
+                    return headerView
+                } else {
+                    return nil
+                }
+            }
         let snapshot = snapshotForCurrentState()
         dataSource.apply(snapshot, animatingDifferences: false)
         
@@ -133,7 +158,6 @@ extension MainScreenView {
 extension MainScreenView {
     
     func setupUI() {
-        title = "Characters"
 //        view.backgroundColor = .bgColor
         view.addSubview(mainCollection)
     }
@@ -155,4 +179,5 @@ extension MainScreenView: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         self.viewModel?.send(event: .onDetailScreen(indexPath.item))
     }
+
 }

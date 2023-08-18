@@ -14,32 +14,34 @@ final class FlowController: UINavigationController {
     // MARK: - Private methods
     
     private func goToMainScreen() {
-        self.navigationBar.prefersLargeTitles = true
+        self.navigationBar.prefersLargeTitles = false
         self.navigationBar.standardAppearance.backgroundColor = .bgColor
-        self.navigationBar.standardAppearance.titleTextAttributes = [.foregroundColor: UIColor.white]
-        self.navigationBar.standardAppearance.largeTitleTextAttributes = [.foregroundColor: UIColor.white]
-        self.navigationBar.scrollEdgeAppearance = navigationBar.standardAppearance
+        
         let mainView = MainScreenView()
         mainView.viewModel  = viewModel
         
         viewModel.flowController = self
-        
+     
         self.pushViewController(mainView, animated: false)
-      
     }
     
     func goToDetailScreen(_ model: HeroModelDataObject) {
         
         let detailViewModel = DetailViewModel(model: model)
         let detailView = SwiftUIViewController(viewModel: detailViewModel)
-        self.pushViewController(detailView, animated: true)
+       
         
-        let backButton = UIBarButtonItem(title: self.title, style: .plain, target: nil, action: nil)
+        let backButton = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
         backButton.tintColor = .white
         self.navigationBar.topItem?.backBarButtonItem = backButton
+        self.pushViewController(detailView, animated: true)
     }
     
-   
+    override func pushViewController(_ viewController: UIViewController, animated: Bool) {
+        super.pushViewController(viewController, animated: animated)
+        
+    
+    }
     
     public init() {
             super.init(nibName: nil, bundle: nil)

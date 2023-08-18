@@ -13,14 +13,14 @@ class SwiftUIViewController: UIHostingController<DetailScreenView> {
     
     init(viewModel: DetailViewModel) {
         let rootView = DetailScreenView(viewModel: viewModel)
+        
         super.init(rootView: rootView)
     }
-    
+
     
     @MainActor required dynamic init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
 }
 
 struct DetailScreenView: View {
@@ -32,13 +32,15 @@ struct DetailScreenView: View {
             VStack {
                 
                 ProfileView(imageName: viewModel.model.image, name: viewModel.model.name, status: viewModel.model.status)
-                    .padding(.all)
+                    .padding([.leading, .trailing, .bottom])
                 
-                
+             
+
                 InfoView(species: viewModel.model.species, type: viewModel.model.type, gender: viewModel.model.gender)
                     .padding(.all)
                 
                 // ORIGIN
+
                 OriginView(name: viewModel.origin.name, type: viewModel.origin.type)
                     .padding(.all)
                 

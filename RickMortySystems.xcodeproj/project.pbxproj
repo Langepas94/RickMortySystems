@@ -30,6 +30,7 @@
 		44B1BA152A8F8D6300CA7B63 /* OriginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44B1BA142A8F8D6300CA7B63 /* OriginView.swift */; };
 		44B1BA182A8F903500CA7B63 /* EpisodeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44B1BA172A8F903500CA7B63 /* EpisodeCell.swift */; };
 		44B1BA1B2A8F93EC00CA7B63 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44B1BA1A2A8F93EC00CA7B63 /* ProfileView.swift */; };
+		44B1BA1E2A8FB1CF00CA7B63 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44B1BA1D2A8FB1CF00CA7B63 /* HeaderView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -57,6 +58,7 @@
 		44B1BA142A8F8D6300CA7B63 /* OriginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OriginView.swift; sourceTree = "<group>"; };
 		44B1BA172A8F903500CA7B63 /* EpisodeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeCell.swift; sourceTree = "<group>"; };
 		44B1BA1A2A8F93EC00CA7B63 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		44B1BA1D2A8FB1CF00CA7B63 /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -144,6 +146,7 @@
 		44B1B9E72A8E035D00CA7B63 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				44B1BA1C2A8FB1C700CA7B63 /* Header */,
 				44B1B9FD2A8E10AA00CA7B63 /* CollectionCell */,
 				44B1B9D32A8E024800CA7B63 /* MainScreenView.swift */,
 			);
@@ -277,6 +280,14 @@
 			path = ProfileView;
 			sourceTree = "<group>";
 		};
+		44B1BA1C2A8FB1C700CA7B63 /* Header */ = {
+			isa = PBXGroup;
+			children = (
+				44B1BA1D2A8FB1CF00CA7B63 /* HeaderView.swift */,
+			);
+			path = Header;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -366,6 +377,7 @@
 				44B1BA182A8F903500CA7B63 /* EpisodeCell.swift in Sources */,
 				44B1BA152A8F8D6300CA7B63 /* OriginView.swift in Sources */,
 				44B1BA1B2A8F93EC00CA7B63 /* ProfileView.swift in Sources */,
+				44B1BA1E2A8FB1CF00CA7B63 /* HeaderView.swift in Sources */,
 				44B1B9EE2A8E051F00CA7B63 /* HeroesNetworkServiceProtocol.swift in Sources */,
 				44B1BA052A8E181100CA7B63 /* FlowController.swift in Sources */,
 				44B1B9F72A8E0B5100CA7B63 /* MainScreenViewModel.swift in Sources */,

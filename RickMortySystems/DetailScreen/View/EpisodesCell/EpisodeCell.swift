@@ -13,31 +13,37 @@ struct EpisodeCell: View {
     let episodeDetails: String
     let episodeDate: String
     var body: some View {
-        VStack {
-            HStack {
-                Text(episodeName)
-                    .font(.system(size: 17))
-                    .foregroundColor(Color.white)
-                    .padding([.bottom, .top], 5)
-                Spacer()
-            }
+        VStack(alignment: .leading) {
+            Text("Episodes")
+                .font(.system(size: 17, weight: .bold))
+                .foregroundColor(Color.white)
             
-            HStack {
-                Text(episodeDetails)
-                    .font(.system(size: 13))
-                    .foregroundColor(Color.green)
-                    .padding([.bottom, .top], 5)
-                Spacer()
-                Text(episodeDate)
-                    .font(.system(size: 13))
-                    .foregroundColor(Color.init(uiColor: .grayText))
-                    .padding([.bottom, .top], 5)
+            VStack {
+                HStack {
+                    Text(episodeName)
+                        .font(.system(size: 17))
+                        .foregroundColor(Color.white)
+                        .padding([.bottom, .top], 5)
+                    Spacer()
+                }
+                
+                HStack {
+                    Text(episodeDetails)
+                        .font(.system(size: 13))
+                        .foregroundColor(Color.green)
+                        .padding([.bottom, .top], 5)
+                    Spacer()
+                    Text(episodeDate)
+                        .font(.system(size: 13))
+                        .foregroundColor(Color.init(uiColor: .grayText))
+                        .padding([.bottom, .top], 5)
+                }
             }
+            .padding([.leading, .trailing])
+            .background(Color.init(uiColor: .cellColor))
+            .cornerRadius(10)
+            .frame(maxWidth: .infinity, alignment: .trailing)
         }
-        .padding([.leading, .trailing])
-        .background(Color.init(uiColor: .cellColor))
-        .cornerRadius(10)
-        .frame(maxWidth: .infinity, alignment: .trailing)
     }
 }
 
