@@ -58,11 +58,12 @@ final class DetailViewModel: DetailViewModelProtocol, ObservableObject {
         if NetworkChecker.shared.isConnected {
             self.getOrigin()
             self.getEpisodes()
+            
             DispatchQueue.main.async{
                 self.isLoaded = true
             }
             
-            // if u want check spinner uncomment this
+            // if u want check spinner - uncomment this
             
 //            DispatchQueue.main.asyncAfter(deadline: .now() + 2){
 //                self.isLoaded = true
@@ -71,7 +72,6 @@ final class DetailViewModel: DetailViewModelProtocol, ObservableObject {
         } else {
             print("no data, check your internet")
         }
-
     }
     
     func episodeNumber(from string: String) -> String {

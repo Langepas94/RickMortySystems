@@ -28,6 +28,8 @@ final class MainScreenCollectionCell: UICollectionViewCell {
         label.textColor = .black
         label.font = .boldSystemFont(ofSize: 17)
         label.textAlignment = .center
+        label.numberOfLines = 1
+        label.adjustsFontSizeToFitWidth = true
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = .white
         return label
@@ -79,11 +81,12 @@ extension MainScreenCollectionCell {
             heroImage.centerXAnchor.constraint(equalTo: centerXAnchor),
             heroImage.bottomAnchor.constraint(equalTo: heroNameLabel.topAnchor, constant: 10),
 
-            heroNameLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
-            heroNameLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
+            heroNameLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 5),
+            heroNameLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -5),
             heroNameLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: 5),
             heroNameLabel.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
         ])
+        
         contentView.backgroundColor = .cellColor
     }
 }
