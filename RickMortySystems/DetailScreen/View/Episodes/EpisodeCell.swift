@@ -12,12 +12,10 @@ struct EpisodeCell: View {
     let episodeName: String
     let episodeDetails: String
     let episodeDate: String
+    var isLoading = false
+    
     var body: some View {
-        VStack(alignment: .leading) {
-            Text("Episodes")
-                .font(.system(size: 17, weight: .bold))
-                .foregroundColor(Color.white)
-            
+        ZStack {
             VStack {
                 HStack {
                     Text(episodeName)
@@ -26,7 +24,6 @@ struct EpisodeCell: View {
                         .padding([.bottom, .top], 5)
                     Spacer()
                 }
-                
                 HStack {
                     Text(episodeDetails)
                         .font(.system(size: 13))
@@ -43,6 +40,12 @@ struct EpisodeCell: View {
             .background(Color.init(uiColor: .cellColor))
             .cornerRadius(10)
             .frame(maxWidth: .infinity, alignment: .trailing)
+            if !isLoading {
+                ProgressView()
+                    .progressViewStyle(CircularProgressViewStyle(tint: .blue))
+                    .frame(maxWidth: .infinity, maxHeight: .infinity)
+                    .edgesIgnoringSafeArea(.all)
+            }
         }
     }
 }

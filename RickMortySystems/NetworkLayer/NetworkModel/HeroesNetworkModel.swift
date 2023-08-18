@@ -51,8 +51,8 @@ struct EpisodeModel: Decodable {
     let episode: String
     
     enum CodingKeys: String, CodingKey {
-           case name
-           case airDate = "air_date"
-           case episode
-       }
+        case name
+        case airDate = "air_date"
+        case episode
+    }
 }

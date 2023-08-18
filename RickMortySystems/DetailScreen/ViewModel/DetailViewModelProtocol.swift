@@ -9,5 +9,5 @@ import Foundation
 
 protocol DetailViewModelProtocol {
     var model: HeroModelDataObject { get set }
-    
+    func configureData()
 }

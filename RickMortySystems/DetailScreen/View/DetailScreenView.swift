@@ -8,16 +8,14 @@
 import Foundation
 import SwiftUI
 
+//  я решил таким способом сделать 2 вьюконтроллер
 
 class SwiftUIViewController: UIHostingController<DetailScreenView> {
     
     init(viewModel: DetailViewModel) {
         let rootView = DetailScreenView(viewModel: viewModel)
-        
         super.init(rootView: rootView)
     }
-
-    
     @MainActor required dynamic init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -31,32 +29,28 @@ struct DetailScreenView: View {
         ScrollView {
             VStack {
                 
-                ProfileView(imageName: viewModel.model.image, name: viewModel.model.name, status: viewModel.model.status)
+                // MARK: - Profile
+                
+                ProfileView(imageName: viewModel.model.image, name: viewModel.model.name, status: viewModel.model.status, isLoading: viewModel.isLoaded)
                     .padding([.leading, .trailing, .bottom])
                 
-             
+                // MARK: - Info
+                
+                InfoView(species: viewModel.model.species, type: viewModel.model.type, gender: viewModel.model.gender, isLoading: viewModel.isLoaded)
+                    .padding(.all)
 
-                InfoView(species: viewModel.model.species, type: viewModel.model.type, gender: viewModel.model.gender)
+                // MARK: - Origin
+                
+                OriginView(name: viewModel.origin.name, type: viewModel.origin.type, isLoading: viewModel.isLoaded)
                     .padding(.all)
                 
-                // ORIGIN
-
-                OriginView(name: viewModel.origin.name, type: viewModel.origin.type)
+                // MARK: - Episodes
+                
+                EpisodesView(viewModel: viewModel)
                     .padding(.all)
-                
-                // EPISODES
-                
-                LazyVStack(spacing: 20) {
-                    ForEach(viewModel.episodes, id: \.episode) { episode in
-                        
-                        EpisodeCell(episodeName: episode.name, episodeDetails: "Episode: \(viewModel.episodeNumber(from: episode.episode)), Season: \(viewModel.seasonNumber(from: episode.episode))", episodeDate: episode.airDate)
-                    }
-                }
-                .padding(.all)
-                
                 
             }.onAppear {
-                viewModel.confogureData()
+                viewModel.configureData()
             }
         }
         .background(Color.init(uiColor: .bgColor))

@@ -8,8 +8,9 @@
 import Foundation
 import UIKit
 
-class ErrorMainScreen: UIView {
+final class ErrorMainScreen: UIView {
     
+    // MARK: - private properties
     private let bannerImageView: UIImageView = {
         let banner = UIImageView()
         banner.image = UIImage(systemName: "pencil.slash")?.withRenderingMode(.alwaysOriginal).withTintColor(.white)
@@ -31,7 +32,7 @@ class ErrorMainScreen: UIView {
     }()
     
     // MARK: - Setup UI
-    func setupUI() {
+    private func setupUI() {
         addSubview(bannerImageView)
         addSubview(labelView)
         
@@ -49,6 +50,7 @@ class ErrorMainScreen: UIView {
         ])
     }
     
+    // MARK: Init
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupUI()

@@ -9,8 +9,10 @@ import Foundation
 import UIKit
 import Kingfisher
 
-class MainScreenCollectionCell: UICollectionViewCell {
+final class MainScreenCollectionCell: UICollectionViewCell {
     static let reuseID = "MainScreenCollectionCell"
+    
+    // MARK: - Private propeties
     
     private let heroImage: UIImageView = {
         let image = UIImageView()
@@ -34,10 +36,21 @@ class MainScreenCollectionCell: UICollectionViewCell {
     override func layoutSubviews() {
         super.layoutSubviews()
         heroImage.layer.cornerRadius = 10
-        
         self.layer.cornerRadius = 10
         self.layer.masksToBounds = true
     }
+    
+    // MARK: - Configure method
+    
+    func configure(_ model: HeroModelDataObject?) {
+        
+        setupUI()
+        heroNameLabel.text = model?.name ?? ""
+        heroImage.kf.setImage(with: URL(string: model?.image ?? ""))
+        
+    }
+    
+    // MARK: Init
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -50,7 +63,7 @@ class MainScreenCollectionCell: UICollectionViewCell {
     
 }
 
-// MARK: - Setup
+// MARK: - Setup appearance
 
 extension MainScreenCollectionCell {
     
@@ -60,7 +73,6 @@ extension MainScreenCollectionCell {
         addSubview(heroNameLabel)
         
         NSLayoutConstraint.activate([
-
             heroImage.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 10),
             heroImage.heightAnchor.constraint(equalToConstant: 140),
             heroImage.widthAnchor.constraint(equalToConstant: 140),
@@ -72,17 +84,6 @@ extension MainScreenCollectionCell {
             heroNameLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: 5),
             heroNameLabel.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
         ])
-        
         contentView.backgroundColor = .cellColor
-        
     }
-    
-    func configure(_ model: HeroModelDataObject?) {
-        
-        setupUI()
-        heroNameLabel.text = model?.name ?? ""
-        heroImage.kf.setImage(with: URL(string: model?.image ?? ""))
-        
-    }
-    
 }

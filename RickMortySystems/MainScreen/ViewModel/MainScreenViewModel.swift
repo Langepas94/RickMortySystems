@@ -8,52 +8,48 @@
 import Foundation
 import Combine
 
-class MainScreenViewModel: MainScreenViewModelProtocol {
+enum Event {
+    case onAppear
+    case onPageScroll
+    case onDetailScreen(Int)
+}
+
+enum State: Equatable {
+    case idle
+    case loading
+    case loaded
+    case error
+}
+
+final class MainScreenViewModel: MainScreenViewModelProtocol {
     
     // MARK: - Public properties
     
-    enum State: Equatable {
-        case idle
-        case loading
-        case loaded
-        case error
-    }
-    
-    enum Event {
-        case onAppear
-        case onPageScroll
-        case onDetailScreen(Int)
-    }
-    
-    var passData: ((HeroModelDataObject) -> Void)?
-    var service = NetworkService()
-    @Published private(set) var state: State = .idle
+    @Published var state: State = .idle
     weak var flowController: FlowController?
     
     // MARK: - Private properties
-    
+    private var service: HeroesNetworkServiceProtocol
     private var maximumPage: Int?
     private var pagesIsCancel: Bool = false
     private var currentPage: Int = 1
     private var model: [HeroModelDataObject]? = [HeroModelDataObject]()
     
+    // MARK: Public methods
+    
     func send(event: Event) {
         switch event {
-            
         case .onAppear:
             fetchData()
         case .onPageScroll:
             nextPage()
- 
-            case .onDetailScreen(let index):
+        case .onDetailScreen(let index):
             goToDetail(index)
         }
     }
     
     func getModel() -> [HeroModelDataObject] {
-
         self.model ?? [HeroModelDataObject]()
-        
     }
     
     // MARK: - Private methods
@@ -64,18 +60,15 @@ class MainScreenViewModel: MainScreenViewModelProtocol {
             guard let self = self else { return }
             switch result {
             case .success(let data):
-                    let charData = data?.results
-                    let heroModels = charData?.map{HeroModelDataObject(data: $0)}
-                    self.maximumPage = data?.info?.pages
-                    self.model?.append(contentsOf: heroModels ?? [])
-                    self.state = .loaded
-
+                let charData = data?.results
+                let heroModels = charData?.map{HeroModelDataObject(data: $0)}
+                self.maximumPage = data?.info?.pages
+                self.model?.append(contentsOf: heroModels ?? [])
+                self.state = .loaded
             case .failure(_):
-
                 self.state = .error
             }
         }
-        
     }
     
     private func goToDetail(_ index: Int) {
@@ -88,11 +81,14 @@ class MainScreenViewModel: MainScreenViewModelProtocol {
             currentPage += 1
             fetchData()
             self.state = .loading
-            
         } else if currentPage == maximumPage {
             pagesIsCancel = true
         }
     }
     
+    // MARK: Init
     
+    init(networkService: HeroesNetworkServiceProtocol) {
+        self.service = networkService
+    }
 }

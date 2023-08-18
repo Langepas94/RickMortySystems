@@ -28,15 +28,11 @@ final class MainScreenView: UIViewController {
         collection.backgroundColor = .bgColor
         return collection
     }()
+    
     private var dataSource: UICollectionViewDiffableDataSource<Section, HeroModelDataObject>! = nil
+
     private var cancellables = Set<AnyCancellable>()
-    public var viewModel: MainScreenViewModel? {
-        didSet {
-            guard let viewModel = viewModel else { return }
-            
-            bind(viewModel: viewModel)
-        }
-    }
+
     private lazy var errorView: ErrorMainScreen = {
         let errorView = ErrorMainScreen()
         errorView.translatesAutoresizingMaskIntoConstraints = false
@@ -44,45 +40,53 @@ final class MainScreenView: UIViewController {
         return errorView
     }()
     
-    private var loadingSpinner: UIActivityIndicatorView = {
-        let spinner = UIActivityIndicatorView()
+    private lazy var loadingSpinner: UIActivityIndicatorView = {
+        let spinner = UIActivityIndicatorView(style: .large)
         spinner.translatesAutoresizingMaskIntoConstraints = false
         spinner.hidesWhenStopped = true
         return spinner
     }()
     
+    // MARK - Public properties
+    
+    public var viewModel: any MainScreenViewModelProtocol {
+        didSet {
+            bind(viewModel: viewModel )
+        }
+    }
+    
+    // MARK: ViewDidLoad
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
         configureDataSource()
+        bind(viewModel: self.viewModel)
     }
     
     // MARK: - createCompositionalLayout()
+    
     private func createCompositionalLayout() -> UICollectionViewCompositionalLayout {
-        
         return UICollectionViewCompositionalLayout(section: mainLayoutSection())
     }
     
     private func mainLayoutSection() -> NSCollectionLayoutSection {
-        
         let itemSize = NSCollectionLayoutSize(
             widthDimension: .fractionalWidth(0.5),
             heightDimension: .fractionalHeight(1))
-        
+
         let item = NSCollectionLayoutItem(layoutSize: itemSize)
-        
         item.contentInsets = .init(top: 10, leading: 10, bottom: 10, trailing: 10)
         
         let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1),
-                                               heightDimension: .fractionalHeight(0.25))
-        
+                                               heightDimension: .fractionalHeight(0.26))
         let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
         
         let section = NSCollectionLayoutSection(group: group)
+        
         let headerSize = NSCollectionLayoutSize(
             widthDimension: .fractionalWidth(1.0),
             heightDimension: .estimated(44))
-        
         let sectionHeader = NSCollectionLayoutBoundarySupplementaryItem(
             layoutSize: headerSize,
             elementKind: UICollectionView.elementKindSectionHeader,
@@ -94,47 +98,60 @@ final class MainScreenView: UIViewController {
     
     // MARK: - Private methods
     
-    private func bind(viewModel: MainScreenViewModel) {
+    private func bind(viewModel: any MainScreenViewModelProtocol) {
+        guard let viewModel = viewModel as? MainScreenViewModel else {
+            return
+        }
         viewModel.$state.removeDuplicates()
             .receive(on: DispatchQueue.main)
             .sink { [weak self] state in
                 self?.render(state: state)
             }.store(in: &cancellables)
-        viewModel.send(event: .onAppear)
+        DispatchQueue.main.async {
+            self.viewModel.send(event: .onAppear)
+        }
     }
     
-    private func render(state: MainScreenViewModel.State) {
+    private func render(state: State) {
         switch state {
         case .idle:
             break
         case .loading:
             self.loadingSpinner.startAnimating()
         case .loaded:
-         configureDataSource()
+            configureDataSource()
+            errorView.isHidden = true
             self.loadingSpinner.stopAnimating()
             self.mainCollection.reloadData()
-//            errorView.isHidden = true
-           
         case .error:
             errorView.isHidden = false
             self.mainCollection.reloadData()
         }
     }
     
+    // MARK: Init
+    
+    init(viewModel: any MainScreenViewModelProtocol) {
+        self.viewModel = viewModel
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
 }
+
+// MARK: - DataSource
 
 extension MainScreenView {
     func configureDataSource() {
         dataSource = UICollectionViewDiffableDataSource
         <Section, HeroModelDataObject>(collectionView: mainCollection) {
             (collectionView: UICollectionView, indexPath: IndexPath, hero: HeroModelDataObject) -> UICollectionViewCell? in
-            
             let sectionType = Section.allCases[indexPath.section]
             switch sectionType {
             case .main:
-                
                 let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MainScreenCollectionCell.reuseID, for: indexPath) as! MainScreenCollectionCell
-                
                 cell.configure(hero)
                 return cell
             }
@@ -142,34 +159,31 @@ extension MainScreenView {
         
         dataSource.supplementaryViewProvider = { [weak self] collectionView, kind, indexPath in
             guard let self = self else { return nil }
-            
             if kind == UICollectionView.elementKindSectionHeader {
                 let headerView = collectionView.dequeueReusableSupplementaryView(
                     ofKind: kind,
                     withReuseIdentifier: Header.reuseID,
                     for: indexPath) as! Header
-                
                 return headerView
             } else {
                 return nil
             }
         }
+        
         let snapshot = snapshotForCurrentState()
         dataSource.apply(snapshot, animatingDifferences: false)
-        
     }
     
     func snapshotForCurrentState() -> NSDiffableDataSourceSnapshot<Section, HeroModelDataObject> {
-        
         var snapshot = NSDiffableDataSourceSnapshot<Section, HeroModelDataObject>()
-        if let allHeroes = viewModel?.getModel() {
-            snapshot.appendSections([Section.main])
-            snapshot.appendItems(allHeroes)
-        }
-        
+        let allHeroes = viewModel.getModel()
+        snapshot.appendSections([Section.main])
+        snapshot.appendItems(allHeroes)
         return snapshot
     }
 }
+
+// MARK: - SetupUI
 
 extension MainScreenView {
     
@@ -192,21 +206,20 @@ extension MainScreenView {
     }
 }
 
+// MARK: - Delegate
+
 extension MainScreenView: UICollectionViewDelegate {
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        
         let offsetY = scrollView.contentOffset.y
         let height = scrollView.contentSize.height
         if offsetY > height - scrollView.frame.height {
-            
-            self.viewModel?.send(event: .onPageScroll)
+            self.viewModel.send(event: .onPageScroll)
             configureDataSource()
         }
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        self.viewModel?.send(event: .onDetailScreen(indexPath.item))
+        self.viewModel.send(event: .onDetailScreen(indexPath.item))
     }
-    
 }

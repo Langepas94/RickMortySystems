@@ -7,6 +7,8 @@
 
 import Foundation
 
-protocol MainScreenViewModelProtocol {
-    var passData: ((HeroModelDataObject) -> Void)? { get set }
+protocol MainScreenViewModelProtocol: ObservableObject {
+    func getModel() -> [HeroModelDataObject]
+    func send(event: Event)
+    var state: State { get set }
 }

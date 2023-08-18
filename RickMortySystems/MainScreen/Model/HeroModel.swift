@@ -21,19 +21,23 @@ struct HeroModelDataObject: Hashable {
     var origin: Location
     var location: Location
     private let identifier = UUID()
+    
     init(data: CharacterResult) {
         self.name = data.name ?? ""
         self.image = data.image ?? ""
         self.status = data.status ?? ""
         self.species = data.species ?? ""
         self.type = data.type ?? ""
+        if self.type == "" {
+            self.type = "None"
+        }
         self.gender = data.gender ?? ""
         self.origin = data.origin ?? Location(name: "", url: "")
         self.location = data.location ?? Location(name: "", url: "")
         self.description = "\(species) - \(status)"
         self.episodes = data.episode ?? [""]
     }
-
+    
     init(image: String, name: String, status: String, species: String, type: String, gender: String, origin: Location, location: Location, description: String, episodes: [String]) {
         self.image = image
         self.name = name

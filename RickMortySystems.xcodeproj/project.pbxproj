@@ -32,6 +32,7 @@
 		44B1BA1B2A8F93EC00CA7B63 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44B1BA1A2A8F93EC00CA7B63 /* ProfileView.swift */; };
 		44B1BA1E2A8FB1CF00CA7B63 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44B1BA1D2A8FB1CF00CA7B63 /* HeaderView.swift */; };
 		44B1BA212A8FB39B00CA7B63 /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44B1BA202A8FB39B00CA7B63 /* ErrorView.swift */; };
+		44B1BA252A8FCD6100CA7B63 /* EpisodesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44B1BA242A8FCD6100CA7B63 /* EpisodesView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -61,6 +62,7 @@
 		44B1BA1A2A8F93EC00CA7B63 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		44B1BA1D2A8FB1CF00CA7B63 /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
 		44B1BA202A8FB39B00CA7B63 /* ErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
+		44B1BA242A8FCD6100CA7B63 /* EpisodesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodesView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,12 +96,12 @@
 		44B1B9CE2A8E024800CA7B63 /* RickMortySystems */ = {
 			isa = PBXGroup;
 			children = (
-				44B1BA1F2A8FB39000CA7B63 /* ErrorView */,
+				44B1BA032A8E17E000CA7B63 /* Navigation */,
+				44B1B9E42A8E034500CA7B63 /* MainScreen */,
 				44B1BA062A8E4ADF00CA7B63 /* DetailScreen */,
-				44B1BA032A8E17E000CA7B63 /* FlowController */,
+				44B1BA1F2A8FB39000CA7B63 /* ErrorScreen */,
 				44B1B9E92A8E041B00CA7B63 /* Extensions */,
 				44B1B9E52A8E035000CA7B63 /* NetworkLayer */,
-				44B1B9E42A8E034500CA7B63 /* MainScreen */,
 				44B1B9E32A8E033200CA7B63 /* app */,
 				44B1B9D82A8E024900CA7B63 /* Assets.xcassets */,
 				44B1B9DA2A8E024900CA7B63 /* LaunchScreen.storyboard */,
@@ -205,19 +207,18 @@
 			path = CollectionCell;
 			sourceTree = "<group>";
 		};
-		44B1BA032A8E17E000CA7B63 /* FlowController */ = {
+		44B1BA032A8E17E000CA7B63 /* Navigation */ = {
 			isa = PBXGroup;
 			children = (
 				44B1BA042A8E181100CA7B63 /* FlowController.swift */,
 			);
-			path = FlowController;
+			path = Navigation;
 			sourceTree = "<group>";
 		};
 		44B1BA062A8E4ADF00CA7B63 /* DetailScreen */ = {
 			isa = PBXGroup;
 			children = (
 				44B1BA092A8E4D1E00CA7B63 /* ViewModel */,
-				44B1BA082A8E4D1900CA7B63 /* Model */,
 				44B1BA072A8E4D0C00CA7B63 /* View */,
 			);
 			path = DetailScreen;
@@ -227,19 +228,12 @@
 			isa = PBXGroup;
 			children = (
 				44B1BA192A8F93E400CA7B63 /* ProfileView */,
-				44B1BA162A8F902300CA7B63 /* EpisodesCell */,
+				44B1BA162A8F902300CA7B63 /* Episodes */,
 				44B1BA132A8F8D5B00CA7B63 /* OriginView */,
 				44B1BA102A8F87AB00CA7B63 /* InfoView */,
 				44B1BA0A2A8E4D2C00CA7B63 /* DetailScreenView.swift */,
 			);
 			path = View;
-			sourceTree = "<group>";
-		};
-		44B1BA082A8E4D1900CA7B63 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
 			sourceTree = "<group>";
 		};
 		44B1BA092A8E4D1E00CA7B63 /* ViewModel */ = {
@@ -267,12 +261,13 @@
 			path = OriginView;
 			sourceTree = "<group>";
 		};
-		44B1BA162A8F902300CA7B63 /* EpisodesCell */ = {
+		44B1BA162A8F902300CA7B63 /* Episodes */ = {
 			isa = PBXGroup;
 			children = (
 				44B1BA172A8F903500CA7B63 /* EpisodeCell.swift */,
+				44B1BA242A8FCD6100CA7B63 /* EpisodesView.swift */,
 			);
-			path = EpisodesCell;
+			path = Episodes;
 			sourceTree = "<group>";
 		};
 		44B1BA192A8F93E400CA7B63 /* ProfileView */ = {
@@ -291,12 +286,12 @@
 			path = Header;
 			sourceTree = "<group>";
 		};
-		44B1BA1F2A8FB39000CA7B63 /* ErrorView */ = {
+		44B1BA1F2A8FB39000CA7B63 /* ErrorScreen */ = {
 			isa = PBXGroup;
 			children = (
 				44B1BA202A8FB39B00CA7B63 /* ErrorView.swift */,
 			);
-			path = ErrorView;
+			path = ErrorScreen;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -375,6 +370,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				44B1BA252A8FCD6100CA7B63 /* EpisodesView.swift in Sources */,
 				44B1B9EC2A8E04FE00CA7B63 /* HeroesNetworkModel.swift in Sources */,
 				44B1B9F52A8E0ADE00CA7B63 /* UIcolor + extension.swift in Sources */,
 				44B1B9FC2A8E0C7200CA7B63 /* HeroModel.swift in Sources */,
