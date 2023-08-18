@@ -31,6 +31,7 @@
 		44B1BA182A8F903500CA7B63 /* EpisodeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44B1BA172A8F903500CA7B63 /* EpisodeCell.swift */; };
 		44B1BA1B2A8F93EC00CA7B63 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44B1BA1A2A8F93EC00CA7B63 /* ProfileView.swift */; };
 		44B1BA1E2A8FB1CF00CA7B63 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44B1BA1D2A8FB1CF00CA7B63 /* HeaderView.swift */; };
+		44B1BA212A8FB39B00CA7B63 /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44B1BA202A8FB39B00CA7B63 /* ErrorView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -59,6 +60,7 @@
 		44B1BA172A8F903500CA7B63 /* EpisodeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeCell.swift; sourceTree = "<group>"; };
 		44B1BA1A2A8F93EC00CA7B63 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		44B1BA1D2A8FB1CF00CA7B63 /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
+		44B1BA202A8FB39B00CA7B63 /* ErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,6 +94,7 @@
 		44B1B9CE2A8E024800CA7B63 /* RickMortySystems */ = {
 			isa = PBXGroup;
 			children = (
+				44B1BA1F2A8FB39000CA7B63 /* ErrorView */,
 				44B1BA062A8E4ADF00CA7B63 /* DetailScreen */,
 				44B1BA032A8E17E000CA7B63 /* FlowController */,
 				44B1B9E92A8E041B00CA7B63 /* Extensions */,
@@ -288,6 +291,14 @@
 			path = Header;
 			sourceTree = "<group>";
 		};
+		44B1BA1F2A8FB39000CA7B63 /* ErrorView */ = {
+			isa = PBXGroup;
+			children = (
+				44B1BA202A8FB39B00CA7B63 /* ErrorView.swift */,
+			);
+			path = ErrorView;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -385,6 +396,7 @@
 				44B1B9F02A8E054500CA7B63 /* NetworkErrors.swift in Sources */,
 				44B1B9F22A8E05BF00CA7B63 /* NetworkService.swift in Sources */,
 				44B1BA0F2A8E50BC00CA7B63 /* DetailViewModel.swift in Sources */,
+				44B1BA212A8FB39B00CA7B63 /* ErrorView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

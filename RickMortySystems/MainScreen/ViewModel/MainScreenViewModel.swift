@@ -22,7 +22,6 @@ class MainScreenViewModel: MainScreenViewModelProtocol {
     enum Event {
         case onAppear
         case onPageScroll
-        case onDefaultState
         case onDetailScreen(Int)
     }
     
@@ -45,12 +44,7 @@ class MainScreenViewModel: MainScreenViewModelProtocol {
             fetchData()
         case .onPageScroll:
             nextPage()
-        case .onDefaultState:
-            
-            currentPage = 1
-            fetchData()
-            self.state = .loaded
-            
+ 
             case .onDetailScreen(let index):
             goToDetail(index)
         }
@@ -65,6 +59,7 @@ class MainScreenViewModel: MainScreenViewModelProtocol {
     // MARK: - Private methods
     
     private func fetchData() {
+        self.state = .loading
         self.service.getAllCharacters(page: currentPage) { [weak self] result in
             guard let self = self else { return }
             switch result {
@@ -80,6 +75,7 @@ class MainScreenViewModel: MainScreenViewModelProtocol {
                 self.state = .error
             }
         }
+        
     }
     
     private func goToDetail(_ index: Int) {

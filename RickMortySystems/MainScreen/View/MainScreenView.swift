@@ -37,6 +37,19 @@ final class MainScreenView: UIViewController {
             bind(viewModel: viewModel)
         }
     }
+    private lazy var errorView: ErrorMainScreen = {
+        let errorView = ErrorMainScreen()
+        errorView.translatesAutoresizingMaskIntoConstraints = false
+        errorView.isHidden = true
+        return errorView
+    }()
+    
+    private var loadingSpinner: UIActivityIndicatorView = {
+        let spinner = UIActivityIndicatorView()
+        spinner.translatesAutoresizingMaskIntoConstraints = false
+        spinner.hidesWhenStopped = true
+        return spinner
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -67,13 +80,13 @@ final class MainScreenView: UIViewController {
         
         let section = NSCollectionLayoutSection(group: group)
         let headerSize = NSCollectionLayoutSize(
-               widthDimension: .fractionalWidth(1.0),
-               heightDimension: .estimated(44))
-           
-           let sectionHeader = NSCollectionLayoutBoundarySupplementaryItem(
-               layoutSize: headerSize,
-               elementKind: UICollectionView.elementKindSectionHeader,
-               alignment: .top)
+            widthDimension: .fractionalWidth(1.0),
+            heightDimension: .estimated(44))
+        
+        let sectionHeader = NSCollectionLayoutBoundarySupplementaryItem(
+            layoutSize: headerSize,
+            elementKind: UICollectionView.elementKindSectionHeader,
+            alignment: .top)
         
         section.boundarySupplementaryItems = [sectionHeader]
         return section
@@ -95,12 +108,15 @@ final class MainScreenView: UIViewController {
         case .idle:
             break
         case .loading:
-            self.mainCollection.reloadData()
+            self.loadingSpinner.startAnimating()
         case .loaded:
-            //            errorView.isHidden = true
+         configureDataSource()
+            self.loadingSpinner.stopAnimating()
             self.mainCollection.reloadData()
+//            errorView.isHidden = true
+           
         case .error:
-            //            errorView.isHidden = false
+            errorView.isHidden = false
             self.mainCollection.reloadData()
         }
     }
@@ -116,7 +132,7 @@ extension MainScreenView {
             let sectionType = Section.allCases[indexPath.section]
             switch sectionType {
             case .main:
-
+                
                 let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MainScreenCollectionCell.reuseID, for: indexPath) as! MainScreenCollectionCell
                 
                 cell.configure(hero)
@@ -125,19 +141,19 @@ extension MainScreenView {
         }
         
         dataSource.supplementaryViewProvider = { [weak self] collectionView, kind, indexPath in
-                guard let self = self else { return nil }
+            guard let self = self else { return nil }
+            
+            if kind == UICollectionView.elementKindSectionHeader {
+                let headerView = collectionView.dequeueReusableSupplementaryView(
+                    ofKind: kind,
+                    withReuseIdentifier: Header.reuseID,
+                    for: indexPath) as! Header
                 
-                if kind == UICollectionView.elementKindSectionHeader {
-                    let headerView = collectionView.dequeueReusableSupplementaryView(
-                        ofKind: kind,
-                        withReuseIdentifier: Header.reuseID,
-                        for: indexPath) as! Header
-                    
-                    return headerView
-                } else {
-                    return nil
-                }
+                return headerView
+            } else {
+                return nil
             }
+        }
         let snapshot = snapshotForCurrentState()
         dataSource.apply(snapshot, animatingDifferences: false)
         
@@ -158,8 +174,21 @@ extension MainScreenView {
 extension MainScreenView {
     
     func setupUI() {
-//        view.backgroundColor = .bgColor
+        view.addSubview(errorView)
         view.addSubview(mainCollection)
+        view.addSubview(loadingSpinner)
+        
+        NSLayoutConstraint.activate([
+            errorView.topAnchor.constraint(equalTo: view.topAnchor),
+            errorView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            errorView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            errorView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            
+            loadingSpinner.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            loadingSpinner.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+            loadingSpinner.heightAnchor.constraint(equalToConstant: 100),
+            loadingSpinner.widthAnchor.constraint(equalToConstant: 100)
+        ])
     }
 }
 
@@ -179,5 +208,5 @@ extension MainScreenView: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         self.viewModel?.send(event: .onDetailScreen(indexPath.item))
     }
-
+    
 }

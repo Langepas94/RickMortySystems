@@ -30,8 +30,8 @@
             filePath = "RickMortySystems/MainScreen/View/MainScreenView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "97"
-            endingLineNumber = "97"
+            startingLineNumber = "110"
+            endingLineNumber = "110"
             landmarkName = "render(state:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -144,6 +144,86 @@
             startingLineNumber = "24"
             endingLineNumber = "24"
             landmarkName = "init(frame:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "728A181F-BAD3-4647-8E48-4FB97CB76E42"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "RickMortySystems/MainScreen/View/MainScreenView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "111"
+            endingLineNumber = "111"
+            landmarkName = "render(state:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "5D3D7DB6-E035-4924-AEB4-6CC2C49F9C3F"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "RickMortySystems/MainScreen/View/MainScreenView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "114"
+            endingLineNumber = "114"
+            landmarkName = "render(state:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "5D3D7DB6-E035-4924-AEB4-6CC2C49F9C3F - 482feb5fd64cc88e"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "RickMortySystems.MainScreenView.render(state: RickMortySystems.MainScreenViewModel.State) -&gt; ()"
+                  moduleName = "RickMortySystems"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/artemturmorezov/Desktop/RickMortySystems/RickMortySystems/MainScreen/View/MainScreenView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "113"
+                  endingLineNumber = "113"
+                  offsetFromSymbolStart = "188">
+               </Location>
+               <Location
+                  uuid = "5D3D7DB6-E035-4924-AEB4-6CC2C49F9C3F - 482feb5fd64cc8e9"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "RickMortySystems.MainScreenView.render(state: RickMortySystems.MainScreenViewModel.State) -&gt; ()"
+                  moduleName = "RickMortySystems"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/artemturmorezov/Desktop/RickMortySystems/RickMortySystems/MainScreen/View/MainScreenView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "114"
+                  endingLineNumber = "114"
+                  offsetFromSymbolStart = "188">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "D0816955-6B17-4ED1-BAA6-4AACF3A76998"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "RickMortySystems/MainScreen/View/MainScreenView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "113"
+            endingLineNumber = "113"
+            landmarkName = "render(state:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
